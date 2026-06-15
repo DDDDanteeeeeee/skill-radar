@@ -31,6 +31,8 @@ FORBIDDEN_PATTERNS = [
     r"cookie\s*=",
 ]
 
+SKIP_DIRS = {".git", "__pycache__"}
+
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -83,6 +85,8 @@ def check_public_only(root: Path) -> list[str]:
     if (root / "runs").exists():
         errors.append("public package must not include internal runs directory")
     for path in root.rglob("*"):
+        if any(part in SKIP_DIRS for part in path.relative_to(root).parts):
+            continue
         if not path.is_file():
             continue
         rel = path.relative_to(root)

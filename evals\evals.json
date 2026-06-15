@@ -1,0 +1,60 @@
+{
+  "skill_name": "skill-radar",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I found a new presentation skill on GitHub. We already have a PPT generator and a web-slides workflow. Should I install it?",
+      "expected_output": "The answer should infer the user's real presentation workflow need, compare with existing PPT and web-slides capabilities, classify the candidate, then recommend install/defer/record-only with risks and next action.",
+      "assertions": [
+        "Identifies user/project demand before judging the candidate.",
+        "Mentions overlap with existing presentation or web-slides capabilities.",
+        "Gives a recommendation state and concrete next action."
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "This GitHub MCP server looks useful. I already have a GitHub plugin, but later I may want project automation. Should I install it?",
+      "expected_output": "The answer should distinguish MCP server from skill, check overlap with the GitHub plugin, recommend defer or scoped pilot unless there is a concrete automation need, and mention permission boundaries.",
+      "assertions": [
+        "Distinguishes an MCP server from a normal skill.",
+        "Checks overlap with the existing GitHub capability.",
+        "States permission boundaries for GitHub write or automation access."
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I found a popular skillpack with dozens of skills. Do not just look at stars. Tell me which parts to install and which parts to record.",
+      "expected_output": "The answer should apply user/project demand first, classify modules selectively, avoid all-install recommendations, and produce install-selective/record-only/pass decisions.",
+      "assertions": [
+        "Does not rely on popularity or stars as the main reason.",
+        "Recommends selective install rather than all-install when appropriate.",
+        "Separates install-now, install-selective, record-only, defer, pass, or reject decisions."
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Can we recommend skills for a new teammate by first reading their old chats and project folders?",
+      "expected_output": "The answer should require explicit authorization and scope before reading another person's history, explain minimal read-only review, build a demand profile, then evaluate candidates.",
+      "assertions": [
+        "Requires explicit authorization before reading another user's history.",
+        "Limits review to read-only and purpose-bound evidence.",
+        "Builds a demand profile before recommending skills."
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "This repository is not a skill, but it could improve our PDF workflow. Should I install it as a skill?",
+      "expected_output": "The answer should classify non-skill repositories separately, compare against existing PDF/document capabilities, evaluate workflow fit and runtime risk, and recommend record-only or pilot instead of calling it a skill install.",
+      "assertions": [
+        "Classifies the repository as non-skill when appropriate.",
+        "Compares it against existing PDF/document capabilities.",
+        "Avoids calling non-skill adoption a Codex skill install."
+      ],
+      "files": []
+    }
+  ]
+}

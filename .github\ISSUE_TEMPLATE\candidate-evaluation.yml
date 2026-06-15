@@ -1,0 +1,54 @@
+name: Candidate skill evaluation
+description: Ask Skill Radar to evaluate a skill, skillpack, MCP server, tool, template, or role pack.
+title: "[candidate]: "
+labels:
+  - candidate
+body:
+  - type: input
+    id: candidate-url
+    attributes:
+      label: Candidate URL
+      description: Link to the GitHub repository, skill folder, plugin, package, or docs.
+      placeholder: https://github.com/example/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: candidate-type
+    attributes:
+      label: What do you think it is?
+      options:
+        - skill
+        - skillpack
+        - plugin marketplace
+        - MCP server
+        - CLI/library
+        - template/resource
+        - workflow idea
+        - role pack
+        - unsure
+    validations:
+      required: true
+  - type: textarea
+    id: user-need
+    attributes:
+      label: What do you want to accomplish?
+      description: Describe the workflow or project need. Avoid private raw content.
+      placeholder: I want to...
+    validations:
+      required: true
+  - type: textarea
+    id: existing-capabilities
+    attributes:
+      label: What do you already have installed?
+      description: List relevant skills, plugins, scripts, or workflows that may overlap.
+      placeholder: I already use...
+    validations:
+      required: false
+  - type: textarea
+    id: permission-boundary
+    attributes:
+      label: Permission and data boundary
+      description: Mention credentials, write access, browser profiles, private history, or external data transfer if relevant.
+      placeholder: This should not read...
+    validations:
+      required: false
